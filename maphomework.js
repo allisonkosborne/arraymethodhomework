@@ -71,9 +71,9 @@ const outfits = [
     console.log(outfitsCopy)
   //Change a value on outfitsCopy and use console logs to show you did not change outfits
   outfitsCopy[0].shoes = "Hemp";
-  console.log(outfitsCopy)
+ //console.log(outfitsCopy)
   outfitsCopy[2].bottoms = "Pajamas"
-  console.log(outfitsCopy)
+  //console.log(outfitsCopy)
   outfitsCopy[3].own = false
   console.log(outfitsCopy)
 
@@ -83,17 +83,43 @@ outfitsCopy.forEach((add) => {
 })
 console.log(outfitsCopy)
 
-  //Make a copy (map) of outfits that contains on the properties of id, bottoms, tops and shoes
-  
+  //Make a copy (map) of outfits that contains only the properties of id, bottoms, tops and shoes
+const outfitsCopy2 = outfits.map(properties => (
+    {   id: properties.id,
+        bottoms: properties.bottoms,
+        top: properties.top,
+        shoes: properties.shoes
+    }
+))
+console.log(outfitsCopy2)
+
   //filter outfits to give only outfits that are casual
-  
+  const filteredCasual = outfits.filter(outfit => //!!!!!!SYNTAX FOR FILTER METHOD FOR AN ARRAY!!!!!
+        outfit.type === 'casual'
+  );
+  console.log(filteredCasual)
+
   // filter outfits to give only outfits that are owned
-  
+  const filteredOwned = outfits.filter(outfit => 
+        outfit.own === true
+    )
+    console.log(filteredOwned)
+
   // use find to return an outfit that has no shoes
-  
+  const noShoes = outfits.find(outfit =>
+        outfit.shoes === 'none'
+    );
+    console.log(noShoes);
+
   // use find to return an outfit that has boots
-  
+  const boots = outfits.find(outfit =>
+    outfit.shoes === 'boots'
+  )
+  console.log(boots)
   
   //Bonus:
   // use find to return an outfit that has jeans and a t-shirt
-  
+  const both = outfits.find(outfit =>
+    outfit.bottoms === 'jeans' && outfit.top === 't-shirt'
+    );
+  console.log(both)
